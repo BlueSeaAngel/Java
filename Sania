@@ -1,0 +1,394 @@
+import java.io.IOException;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+        // Esta variable controla el menú principal. Cuando se vuelva falsa, el programa termina.
+        boolean proceso = true;
+
+        // Ingrese el número total de productos que se venden en Sania en la siguiente variable
+        int total_prods = 31;
+        int total_tiendas = 6;
+
+        Producto[] productos = new Producto[total_prods];
+        Tienda[] tiendas = new Tienda[total_tiendas];
+
+        // En este apartado se crean los productos de las tiendas y las tiendas
+
+        String[] files = new String[0];
+
+        Tienda tienda_1 = new Tienda("toy store",3,files,"109");
+        Producto[] prods_tienda_1 = new Producto[5];
+
+        Producto p1t1 = new Producto("ball",20,tienda_1);
+        prods_tienda_1[0] = p1t1;
+        productos[0] = p1t1;
+
+
+        ArrayList<String> prods_tienda_1 = new ArrayList<String>();
+        prods_tienda_1.add("ball");
+        prods_tienda_1.add("cowboy");
+        prods_tienda_1.add("astronaut");
+        prods_tienda_1.add("legos");
+        prods_tienda_1.add("doll");
+
+        tiendas[0] = tienda_1;
+
+
+
+        Producto p2t1 = new Producto(prods_tienda_1.get(1),32.5,tienda_1);
+        productos[1] = p2t1;
+        Producto p3t1 = new Producto(prods_tienda_1.get(2),45.7,tienda_1);
+        productos[2] = p3t1;
+        Producto p4t1 = new Producto(prods_tienda_1.get(3),49.99,tienda_1);
+        productos[3] = p4t1;
+        Producto p5t1 = new Producto(prods_tienda_1.get(4),15.29,tienda_1);
+        productos[4] = p5t1;
+
+        ArrayList<String> prods_tienda_2 = new ArrayList<String>();
+        prods_tienda_2.add("fender guitar");
+        prods_tienda_2.add("gibson guitar");
+        prods_tienda_2.add("epiphone guitar");
+        prods_tienda_2.add("flute");
+        prods_tienda_2.add("fender amplifier");
+        prods_tienda_2.add("marshall amplifier");
+        Tienda tienda_2 = new Tienda("mr. cassette",2,prods_tienda_2,"201");
+        tiendas[1] = tienda_2;
+
+        Producto p1t2 = new Producto(prods_tienda_2.get(0),200,tienda_2);
+        productos[5] = p1t2;
+        Producto p2t2 = new Producto(prods_tienda_2.get(1),320.5,tienda_2);
+        productos[6] = p2t2;
+        Producto p3t2 = new Producto(prods_tienda_1.get(2),45.7,tienda_1);
+        productos[7] = p3t2;
+        Producto p4t2 = new Producto(prods_tienda_1.get(3),49.99,tienda_1);
+        productos[8] = p4t2;
+        Producto p5t2 = new Producto(prods_tienda_1.get(4),15.29,tienda_1);
+        productos[9] = p5t2;
+        Producto p6t2 = new Producto(prods_tienda_2.get(5), 400.25,tienda_2);
+        productos[10] = p6t2;
+
+        ArrayList<String> prods_tienda_3 = new ArrayList<String>();
+        prods_tienda_3.add("pulparindo");
+        prods_tienda_3.add("hershey's chocolate");
+        prods_tienda_3.add("panditas");
+        prods_tienda_3.add("toblerone chocolate");
+        prods_tienda_3.add("mazapan");
+        Tienda tienda_3 = new Tienda("candy store",1,prods_tienda_3,"365");
+        tiendas[2] = tienda_3;
+
+        Producto p1t3 = new Producto(prods_tienda_3.get(0),22.3,tienda_3);
+        productos[11] = p1t3;
+        Producto p2t3 = new Producto(prods_tienda_3.get(1),55.49,tienda_3);
+        productos[12] = p2t3;
+        Producto p3t3 = new Producto(prods_tienda_3.get(2),5,tienda_3);
+        productos[13] = p3t3;
+        Producto p4t3 = new Producto(prods_tienda_3.get(3),500,tienda_3);
+        productos[14] = p4t3;
+        Producto p5t3 = new Producto(prods_tienda_3.get(4),30,tienda_3);
+        productos[15] = p5t3;
+
+        /*for(int i = 0; i < 16; i++){
+            System.out.println(productos[i].nombre);
+        }*/
+
+        ArrayList<String> prods_tienda_4 = new ArrayList<String>();
+        prods_tienda_4.add("pencil");
+        prods_tienda_4.add("pen");
+        prods_tienda_4.add("eraser");
+        prods_tienda_4.add("glue");
+        prods_tienda_4.add("flute");
+        prods_tienda_4.add("mazapan");
+        Tienda tienda_4 = new Tienda("stationery store",1,prods_tienda_4,"999");
+        tiendas[3] = tienda_4;
+
+        Producto p1t4 = new Producto(prods_tienda_4.get(0),1.05,tienda_4);
+        productos[16] = p1t4;
+        Producto p2t4 = new Producto(prods_tienda_4.get(1),2.45,tienda_4);
+        productos[17] = p2t4;
+        Producto p3t4 = new Producto(prods_tienda_4.get(2),1.6,tienda_4);
+        productos[18] = p3t4;
+        Producto p4t4 = new Producto(prods_tienda_4.get(3),5,tienda_4);
+        productos[19] = p4t4;
+        Producto p5t4 = new Producto(prods_tienda_4.get(4),6,tienda_4);
+        productos[20] = p5t4;
+        Producto p6t4 = new Producto(prods_tienda_4.get(5),20,tienda_4);
+        productos[21] = p6t4;
+
+        ArrayList<String> prods_tienda_5 = new ArrayList<String>();
+        prods_tienda_5.add("earphones");
+        prods_tienda_5.add("headphones");
+        prods_tienda_5.add("marshall amplifier");
+        prods_tienda_5.add("speaker");
+        Tienda tienda_5 = new Tienda("audio store",2,prods_tienda_5,"324");
+        tiendas[4] = tienda_5;
+
+        Producto p1t5 = new Producto(prods_tienda_5.get(0),10.99,tienda_5);
+        productos[22] = p1t5;
+        Producto p2t5 = new Producto(prods_tienda_5.get(1),40,tienda_5);
+        productos[23] = p2t5;
+        Producto p3t5 = new Producto(prods_tienda_5.get(2),300,tienda_5);
+        productos[24] = p3t5;
+        Producto p4t5 = new Producto(prods_tienda_5.get(3),100, tienda_5);
+        productos[25] = p4t5;
+
+        ArrayList<String> prods_tienda_6 = new ArrayList<String>();
+        prods_tienda_6.add("legos");
+        prods_tienda_6.add("pen");
+        prods_tienda_6.add("earphones");
+        prods_tienda_6.add("mazapan");
+        prods_tienda_6.add("flute");
+        Tienda tienda_6 = new Tienda("souvenirs",3,prods_tienda_6,"648");
+        tiendas[5] = tienda_6;
+
+        Producto p1t6 = new Producto(prods_tienda_6.get(0), 15,tienda_6);
+        productos[26] = p1t6;
+        Producto p2t6 = new Producto(prods_tienda_6.get(1), 15,tienda_6);
+        productos[27] = p2t6;
+        Producto p3t6 = new Producto(prods_tienda_6.get(2), 15,tienda_6);
+        productos[28] = p3t6;
+        Producto p4t6 = new Producto(prods_tienda_6.get(3), 15,tienda_6);
+        productos[29] = p4t6;
+        Producto p5t6 = new Producto(prods_tienda_6.get(4), 15,tienda_6);
+        productos[30] = p5t6;
+
+        /*for(int i = 0; i < total_prods; i++){
+            System.out.println(productos[i].nombre);
+        }*/
+
+        // *******************************************************************
+
+        // Mapa de Números de Tienda y Nombres de Tienda
+
+        Map<String, String> mapa_tiendas = new HashMap<String, String>();
+        mapa_tiendas.put("109", tienda_1.nombre);
+        mapa_tiendas.put("201", tienda_2.nombre);
+        mapa_tiendas.put("365", tienda_3.nombre);
+        mapa_tiendas.put("999", tienda_4.nombre);
+        mapa_tiendas.put("324", tienda_5.nombre);
+        mapa_tiendas.put("648", tienda_6.nombre);
+
+        do {
+
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            System.out.println("Welcome to Plaza Sania\n\n");
+            System.out.println("Search for a product or a store");
+            System.out.println("For product press 1");
+            System.out.println("For store press 2");
+            System.out.println("For exit press 3");
+
+            int opcion = 0;
+
+            // En caso de que el usuario ingrese una cadena de caracteres
+            try {
+                Scanner entrada = new Scanner(System.in);
+                opcion = entrada.nextInt();
+            }catch (InputMismatchException e){
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                }
+
+            switch (opcion) {
+                case 1:
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    System.out.println("Product Option Selected");
+
+                    break;
+                case 2:
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    String m = new String();
+                    // Este fragmento obtiene el mapa: id tienda y nombre tienda
+                    for(Map.Entry par_entrada : mapa_tiendas.entrySet()){
+                        m = m + par_entrada.getKey() + " | " + par_entrada.getValue() + "\n";
+                    }
+                    // Se mandas como argumentos el mapa y el fragmento anterior
+                    mostrarTienda(tiendas,m);
+                    break;
+                case 3:
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    System.out.println("Goodbye\n\n");
+                    proceso = false;
+                    break;
+                default:
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    System.out.println("Wrong answer");
+                    System.out.println("Enter one of the options, please\n");
+                    System.out.println("Press \"ENTER\" to continue...");
+                    Scanner entrada = new Scanner(System.in);
+                    entrada.nextLine();
+                    break;
+            }
+
+        } while(proceso);
+
+    }
+
+    public static void mostrarTienda(Tienda[] tienda, String m) throws IOException, InterruptedException {
+
+        boolean proceso = true;
+
+        do{
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            System.out.println("Store Option Selected\n");
+            System.out.println("Store Number | Store Name\n");
+            System.out.println(m);
+            System.out.println("\nYou can search for a store by number or by name\n");
+            System.out.println("For number press 1");
+            System.out.println("For name press 2");
+            System.out.println("Press 3 to return to main menu");
+
+            // Opción por defecto
+            int opcion = 0;
+
+            // En caso de que el usuario ingrese una cadena de caracteres
+            try {
+                Scanner entrada = new Scanner(System.in);
+                opcion = entrada.nextInt();
+            }catch (InputMismatchException e){
+                Scanner entrada = new Scanner(System.in);
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            }
+
+            switch (opcion){
+                case 1:
+
+                    Scanner entrada = new Scanner(System.in);
+                    System.out.println("Enter the Store Number");
+                    String opcion_1 = entrada.next();
+                    opcion_1 += entrada.nextLine();
+                    boolean num_t = false;
+
+                    for(Tienda elemento : tienda){
+                        if(elemento.num.equals(opcion_1)){
+                            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                            System.out.println(elemento.toString());
+                            num_t = true;
+                            break;
+                        }
+                    }
+
+                    if(num_t == false){
+                        System.out.println("\nNumber not found");
+                    }
+
+                    //System.out.println(mapa.containsValue(opcion_1));
+                    System.out.println("\nPress \"ENTER\" to continue...");
+                    entrada.nextLine();
+                    break;
+
+                case 2:
+
+                    System.out.println("Enter the Store Name");
+                    Scanner entrada_1 = new Scanner(System.in);
+                    String opcion_2 = entrada_1.next();
+                    opcion_2 += entrada_1.nextLine();
+                    opcion_2 = opcion_2.toLowerCase(Locale.ROOT);
+                    boolean nom_t = false;
+
+                    for(Tienda elemento : tienda){
+                        if(elemento.nombre.equals(opcion_2)){
+                            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                            System.out.println(elemento.toString());
+                            nom_t = true;
+                            break;
+                        }
+                    }
+
+                    if(nom_t == false){
+                        System.out.println("\nName not found");
+                    }
+
+                    System.out.println("\nPress \"ENTER\" to continue...");
+                    entrada_1.nextLine();
+                    break;
+
+                case 3:
+
+                    proceso = false;
+                    break;
+
+                default:
+
+                    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+                    Scanner entrada_2 = new Scanner(System.in);
+                    System.out.println("Wrong answer");
+                    System.out.println("Enter one of the options, please\n");
+                    System.out.println("Press \"ENTER\" to continue...");
+                    entrada_2.nextLine();
+                    break;
+
+            }
+        }while(proceso);
+
+
+    }
+
+}
+
+
+
+
+
+
+public class Producto{
+
+    String nombre;
+    double precio;
+    Tienda tienda;
+
+    // Constructor
+    public Producto(String nombre, double precio, Tienda tienda){
+
+        this.nombre = nombre;
+        this.precio = precio;
+        this.tienda = tienda;
+
+    }
+
+    public String toString(){
+        return "Product name: " + nombre +
+                "\nPrice: " + precio +
+                "\nStore: " + tienda;
+    }
+
+}
+
+
+
+
+import java.util.ArrayList;
+
+public class Tienda{
+
+    String nombre;
+    int piso;
+    String[] productos;
+    String num;
+
+    // Constructor
+    public Tienda(String nombre, int piso, String[] productos, String num){
+
+        this.nombre = nombre;
+        this.piso = piso;
+        this.productos = productos;
+        this.num = num;
+
+    }
+
+    public String[] getProductos() {
+        return productos;
+    }
+
+    public void setProductos(String[] productos) {
+        this.productos = productos;
+    }
+
+    public String toString(){
+        return "Store name: " + nombre +
+                "\nStore number: " + num +
+                "\nFloor: " + piso +
+                "\nProducts: " + productos;
+    }
+
+}
